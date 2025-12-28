@@ -1,0 +1,9 @@
+-- Options are automatically loaded before lazy.nvim startup
+-- Default options that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- Add any additional options here
+vim.opt.relativenumber = false
+vim.opt.spell = false
+
+-- conceal level
+vim.opt.conceallevel = 0 -- show raw markdown markers by default
+vim.opt.concealcursor = "" -- don't change conceal behavior under cursor

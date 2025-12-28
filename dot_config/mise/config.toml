@@ -1,0 +1,7 @@
+[tools]
+aws-cli = "latest"
+elixir = "latest"
+node = "lts"
+rust = "latest"
+usage = "latest"
+zig = "latest"
