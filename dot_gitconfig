@@ -1,0 +1,46 @@
+# This is Git's per-user configuration file.
+[user]
+# Please adapt and uncomment the following lines:
+	name = minhluuquang
+	email = minhlq0696@gmail.com
+	signingkey = C17F0539AB2FF314
+[alias]
+	co = checkout
+	br = branch
+	cm = commit
+	st = status
+[core]
+	editor = vim
+[filter "lfs"]
+	required = true
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+[init]
+	defaultBranch = main
+[http]
+	version = HTTP/2
+	postBuffer = 524288000
+[commit]
+	gpgsign = true
+[tag]
+	gpgSign = true
+[credential "https://github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !/opt/homebrew/bin/gh auth git-credential
+[credential "https://huggingface.co"]
+	provider = generic
+[credential "https://codeberg.org"]
+	provider = generic
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+[lfs "customtransfer.xet"]
+	path = git-xet
+	args = transfer
+	concurrent = true
