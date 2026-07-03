@@ -1,7 +1,7 @@
 [tools]
 aws-cli = "latest"
 elixir = "latest"
-node = "lts"
+node = "latest"
 rust = "latest"
 usage = "latest"
 zig = "latest"

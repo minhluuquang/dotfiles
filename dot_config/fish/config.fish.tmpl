@@ -1,0 +1,109 @@
+# ~/.config/fish/config.fish
+
+set -gx EDITOR nvim
+set -gx LC_CTYPE en_US.UTF-8
+set -gx GOPATH $HOME/go
+set -gx GOBIN $GOPATH/bin
+set -gx DENO_INSTALL $HOME/.deno
+set -gx BUN_INSTALL $HOME/.bun
+set -gx ERL_AFLAGS "+pc unicode -kernel shell_history enabled"
+
+fish_add_path $HOME/.local/bin
+fish_add_path $GOBIN
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/.npm-global/bin
+fish_add_path $DENO_INSTALL/bin
+fish_add_path $BUN_INSTALL/bin
+
+for dir in \
+    $HOME/.local/lib/aws/bin \
+    $HOME/.cache/rebar3/bin \
+    $HOME/.lmstudio/bin \
+    $HOME/.opencode/bin \
+    $HOME/.foundry/bin
+    if test -d $dir
+        fish_add_path $dir
+    end
+end
+
+{{- if eq .chezmoi.os "darwin" }}
+for dir in \
+    /opt/homebrew/bin \
+    /opt/homebrew/sbin \
+    /opt/homebrew/opt/llvm/bin \
+    /Applications/Obsidian.app/Contents/MacOS
+    if test -d $dir
+        fish_add_path $dir
+    end
+end
+
+if test -d /opt/homebrew/Cellar/proper/1.4
+    set -gx ERL_LIBS /opt/homebrew/Cellar/proper/1.4
+end
+
+if test -f /opt/homebrew/share/fish/completions/git.fish
+    source /opt/homebrew/share/fish/completions/git.fish
+end
+{{- else if eq .chezmoi.os "linux" }}
+for dir in \
+    /usr/local/go/bin \
+    /usr/local/bin \
+    /usr/bin
+    if test -d $dir
+        fish_add_path $dir
+    end
+end
+{{- end }}
+
+if status --is-interactive
+    if type -q pyenv
+        set -gx PYENV_ROOT $HOME/.pyenv
+        fish_add_path $PYENV_ROOT/bin
+        pyenv init - fish | source
+    end
+
+    if type -q rbenv
+        rbenv init - fish | source
+    end
+
+    if type -q devbox; and test -d ~/.config/fish/completions
+        devbox completion fish > ~/.config/fish/completions/devbox.fish
+    end
+
+    if type -q starship
+        starship init fish | source
+    end
+
+    set -gx GPG_TTY (tty)
+
+    if not set -q SSH_AUTH_SOCK
+        eval (ssh-agent -c)
+
+        {{- if eq .chezmoi.os "darwin" }}
+        test -f ~/.ssh/id_ed25519; and ssh-add --apple-use-keychain ~/.ssh/id_ed25519
+        test -f ~/.ssh/id_ed25519_bitbucket; and ssh-add --apple-use-keychain ~/.ssh/id_ed25519_bitbucket
+        {{- else }}
+        test -f ~/.ssh/id_ed25519; and ssh-add ~/.ssh/id_ed25519
+        {{- end }}
+    end
+end
+
+alias k=kubectl
+alias vim=nvim
+alias ccd="claude --dangerously-skip-permissions --permission-mode plan"
+alias ze="zellij -l welcome"
+alias cdx="codex"
+
+if test -d $HOME/.fonts
+    for script in (command find $HOME/.fonts -maxdepth 1 -type f -name '*.sh' 2>/dev/null)
+        bash -c "source $script"
+    end
+end
+
+if test -f $HOME/.local/share/icons-in-terminal/icons_bash.sh
+    bash -c "source $HOME/.local/share/icons-in-terminal/icons_bash.sh"
+end
+
+if test -f ~/.config/fish/secrets.fish
+    source ~/.config/fish/secrets.fish
+end
