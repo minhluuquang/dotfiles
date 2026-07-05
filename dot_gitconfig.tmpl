@@ -1,9 +1,8 @@
 # This is Git's per-user configuration file.
 [user]
-# Please adapt and uncomment the following lines:
-	name = minhluuquang
-	email = minhlq0696@gmail.com
-	signingkey = C17F0539AB2FF314
+	name = {{ .name | quote }}
+	email = {{ .email | quote }}
+	signingkey = {{ .signingkey | quote }}
 [alias]
 	co = checkout
 	br = branch
@@ -26,18 +25,30 @@
 [tag]
 	gpgSign = true
 [credential "https://github.com"]
-	helper = 
+	helper =
+{{- if eq .chezmoi.os "darwin" }}
 	helper = !/opt/homebrew/bin/gh auth git-credential
+{{- else }}
+	helper = !/usr/bin/gh auth git-credential
+{{- end }}
 [credential "https://gist.github.com"]
-	helper = 
+	helper =
+{{- if eq .chezmoi.os "darwin" }}
 	helper = !/opt/homebrew/bin/gh auth git-credential
+{{- else }}
+	helper = !/usr/bin/gh auth git-credential
+{{- end }}
 [credential "https://huggingface.co"]
 	provider = generic
 [credential "https://codeberg.org"]
 	provider = generic
 [credential]
-	helper = 
+	helper =
+{{- if eq .chezmoi.os "darwin" }}
 	helper = /usr/local/share/gcm-core/git-credential-manager
+{{- else }}
+	helper = /usr/bin/git-credential-manager
+{{- end }}
 [credential "https://dev.azure.com"]
 	useHttpPath = true
 [lfs "customtransfer.xet"]
