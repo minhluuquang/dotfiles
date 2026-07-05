@@ -2,13 +2,13 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $signingkey := promptStringOnce . "signingkey" "GPG signing key ID" -}}
 
-[data]
-    name = {{ $name | quote }}
-    email = {{ $email | quote }}
-    signingkey = {{ $signingkey | quote }}
-
 encryption = "age"
 
 [age]
     identity = "~/.config/chezmoi/key.txt"
     recipient = "age1cuarfluwpe6rhx6ehuwsl93eenl9cy3ypqyw2039jutpw6xuxdfqgajnlh"
+
+[data]
+    name = {{ $name | quote }}
+    email = {{ $email | quote }}
+    signingkey = {{ $signingkey | quote }}
