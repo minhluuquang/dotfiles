@@ -19,24 +19,24 @@ packages:
     - ripgrep
     - fd-find
     - fzf
-    - kubectl
     # version managers
-    - pyenv
     - rbenv
     # fisher-managed
     # - jhillyerd/plugin-git  (fisher installs this)
     # - patrickf1/fzf.fish     (fisher installs this)
     # installed via curl/script:
-    #   starship:  curl -sS https://starship.rs/install.sh | sh
-    #   mise:      curl https://mise.run | sh
-    #   bun:       curl -fsSL https://bun.sh/install | bash
-    #   deno:      curl -fsSL https://deno.land/install.sh | sh
-    #   devbox:    curl -fsSL https://get.jetify.com/devbox | bash
-    #   zellij:    curl -fsSL https://zellij.dev/install | sh
-    #   claude:    npm install -g @anthropic-ai/claude-code
-    #   codex:     npm install -g @openai/codex
+    #   starship:       curl -sS https://starship.rs/install.sh | sh
+    #   mise:           curl https://mise.run | sh
+    #   bun:            curl -fsSL https://bun.sh/install | bash
+    #   deno:           curl -fsSL https://deno.land/install.sh | sh
+    #   devbox:         curl -fsSL https://get.jetify.com/devbox | bash
+    #   zellij:         curl -fsSL https://zellij.dev/install | sh
+    #   claude:         npm install -g @anthropic-ai/claude-code
+    #   codex:          npm install -g @openai/codex
+    # not in apt:
+    #   kubectl:        snap install kubectl
+    #   pyenv:          git clone https://github.com/pyenv/pyenv.git ~/.pyenv
     # mise manages: aws-cli, elixir, node, rust, zig, usage
-
   darwin:
     brews:
     # core
