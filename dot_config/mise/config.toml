@@ -1,5 +1,6 @@
 [tools]
 aws-cli = "latest"
+erlang = "latest"
 elixir = "latest"
 node = "latest"
 rust = "latest"

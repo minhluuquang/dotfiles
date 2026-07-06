@@ -36,8 +36,7 @@ packages:
     #   omp:            bun install -g @oh-my-pi/pi-coding-agent
     # not in apt:
     #   kubectl:        snap install kubectl
-    #   pyenv:          git clone https://github.com/pyenv/pyenv.git ~/.pyenv
-    # mise manages: aws-cli, elixir, node, rust, zig, usage
+    # mise manages: aws-cli, erlang, elixir, node, rust, zig, usage
   darwin:
     brews:
     # core
@@ -66,5 +65,5 @@ packages:
     #   codex:   npm install -g @openai/codex
     # curl installs:
     #   devbox:  curl -fsSL https://get.jetify.com/devbox | bash
-    # mise manages: aws-cli, elixir, node, rust, zig, usage
+    # mise manages: aws-cli, erlang, elixir, node, rust, zig, usage
     casks: []
