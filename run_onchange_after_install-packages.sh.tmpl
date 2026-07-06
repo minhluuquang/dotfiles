@@ -74,7 +74,5 @@ if command -v npm &>/dev/null; then
 fi
 
 if command -v bun &>/dev/null; then
-    if ! command -v omp &>/dev/null; then
-        bun install -g @oh-my-pi/pi-coding-agent
-    fi
+    bun install -g @oh-my-pi/pi-coding-agent@latest
 fi
