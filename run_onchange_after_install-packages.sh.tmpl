@@ -47,10 +47,13 @@ if ! command -v devbox &>/dev/null; then
     curl -fsSL https://get.jetify.com/devbox | bash
 fi
 
-# ── Install mise-managed tools (installs node → makes npm available) ──
+# ── Install mise-managed tools ──
 if command -v mise &>/dev/null; then
-    mise install
+    # Install erlang first so elixir can find erl during build
+    mise install erlang
     export PATH="$HOME/.local/share/mise/shims:$PATH"
+    # Install remaining tools (elixir, node, rust, zig, usage, aws-cli)
+    mise install
 fi
 
 # zellij: installed via cargo (requires rust from mise)
