@@ -1,6 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+# Ensure common paths are visible for command checks
+export PATH="$HOME/.local/bin:$HOME/.bun/bin:$PATH"
+
 # ── Native package manager ──
 {{ if eq .chezmoi.os "darwin" -}}
 brew update
@@ -47,7 +50,12 @@ if ! command -v devbox &>/dev/null; then
     curl -fsSL https://get.jetify.com/devbox | bash
 fi
 
-# ── npm global installs ──
+# ── Install mise-managed tools (installs node → makes npm available) ──
+if command -v mise &>/dev/null; then
+    mise install
+fi
+
+# ── npm/bun global installs ──
 if command -v npm &>/dev/null; then
     if ! command -v claude &>/dev/null; then
         npm install -g @anthropic-ai/claude-code
@@ -57,7 +65,8 @@ if command -v npm &>/dev/null; then
     fi
 fi
 
-# ── Install mise-managed tools ──
-if command -v mise &>/dev/null; then
-    mise install
+if command -v bun &>/dev/null; then
+    if ! command -v omp &>/dev/null; then
+        bun install -g @oh-my-pi/pi-coding-agent
+    fi
 fi
