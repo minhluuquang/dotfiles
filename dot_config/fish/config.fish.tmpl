@@ -53,7 +53,13 @@ for dir in \
         fish_add_path $dir
     end
 end
+
 {{- end }}
+
+# Activate mise (version manager for node, rust, elixir, etc.)
+if type -q mise
+    mise activate fish | source
+end
 
 if status --is-interactive
     if type -q pyenv
