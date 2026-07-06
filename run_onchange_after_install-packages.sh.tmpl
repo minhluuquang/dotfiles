@@ -22,7 +22,7 @@ sudo apt install -y {{ range .packages.ubuntu.apt }}{{ . | quote }} {{ end }}
 {{   end -}}
 {{ end -}}
 
-# ── curl-based installs (only if not already present) ──
+# ── curl/cargo-based installs (only if not already present) ──
 {{ if eq .chezmoi.os "linux" -}}
 if ! command -v starship &>/dev/null; then
     curl -sS https://starship.rs/install.sh | sh -s -- -y
@@ -40,9 +40,6 @@ if ! command -v deno &>/dev/null; then
     curl -fsSL https://deno.land/install.sh | sh
 fi
 
-if ! command -v zellij &>/dev/null; then
-    curl -fsSL https://zellij.dev/install | sh
-fi
 {{ end -}}
 
 # platform-agnostic curl installs
@@ -55,6 +52,14 @@ if command -v mise &>/dev/null; then
     mise install
     export PATH="$HOME/.local/share/mise/shims:$PATH"
 fi
+
+# zellij: installed via cargo (requires rust from mise)
+{{ if eq .chezmoi.os "linux" -}}
+if ! command -v zellij &>/dev/null; then
+    cargo install zellij
+fi
+{{ end -}}
+
 # ── npm/bun global installs ──
 if command -v npm &>/dev/null; then
     if ! command -v claude &>/dev/null; then
