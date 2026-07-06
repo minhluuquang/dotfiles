@@ -53,8 +53,8 @@ fi
 # ── Install mise-managed tools (installs node → makes npm available) ──
 if command -v mise &>/dev/null; then
     mise install
+    export PATH="$HOME/.local/share/mise/shims:$PATH"
 fi
-
 # ── npm/bun global installs ──
 if command -v npm &>/dev/null; then
     if ! command -v claude &>/dev/null; then
