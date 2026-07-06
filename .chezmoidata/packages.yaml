@@ -1,0 +1,17 @@
+packages:
+  ubuntu:
+    apt:
+    - fish
+    - neovim
+    - git
+    - gh
+    - gnupg
+    - curl
+    - git-lfs
+    # mise version-managed tools
+    - build-essential
+    - unzip
+  darwin:
+    brews:
+    # tools used by dotfiles
+    casks:
