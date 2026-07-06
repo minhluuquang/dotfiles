@@ -1,7 +1,9 @@
 #!/bin/bash
 set -euo pipefail
 
+# ── Native package manager ──
 {{ if eq .chezmoi.os "darwin" -}}
+brew update
 {{   if .packages.darwin.brews -}}
 brew install {{ range .packages.darwin.brews }}{{ . | quote }} {{ end }}
 {{   end -}}
@@ -16,3 +18,46 @@ sudo apt update
 sudo apt install -y {{ range .packages.ubuntu.apt }}{{ . | quote }} {{ end }}
 {{   end -}}
 {{ end -}}
+
+# ── curl-based installs (only if not already present) ──
+{{ if eq .chezmoi.os "linux" -}}
+if ! command -v starship &>/dev/null; then
+    curl -sS https://starship.rs/install.sh | sh -s -- -y
+fi
+
+if ! command -v mise &>/dev/null; then
+    curl https://mise.run | sh
+fi
+
+if ! command -v bun &>/dev/null; then
+    curl -fsSL https://bun.sh/install | bash
+fi
+
+if ! command -v deno &>/dev/null; then
+    curl -fsSL https://deno.land/install.sh | sh
+fi
+
+if ! command -v zellij &>/dev/null; then
+    curl -fsSL https://zellij.dev/install | sh
+fi
+{{ end -}}
+
+# platform-agnostic curl installs
+if ! command -v devbox &>/dev/null; then
+    curl -fsSL https://get.jetify.com/devbox | bash
+fi
+
+# ── npm global installs ──
+if command -v npm &>/dev/null; then
+    if ! command -v claude &>/dev/null; then
+        npm install -g @anthropic-ai/claude-code
+    fi
+    if ! command -v codex &>/dev/null; then
+        npm install -g @openai/codex
+    fi
+fi
+
+# ── Install mise-managed tools ──
+if command -v mise &>/dev/null; then
+    mise install
+fi
