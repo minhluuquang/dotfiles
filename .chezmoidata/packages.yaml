@@ -46,7 +46,6 @@ packages:
     - gnupg
     - git-lfs
     - git-credential-manager
-    - openssh
     # tools
     - starship
     - mise
