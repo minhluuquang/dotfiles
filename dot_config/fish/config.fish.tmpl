@@ -19,7 +19,6 @@ for dir in \
     $HOME/.local/lib/aws/bin \
     $HOME/.cache/rebar3/bin \
     $HOME/.lmstudio/bin \
-    $HOME/.opencode/bin \
     $HOME/.foundry/bin
     if test -d $dir
         fish_add_path $dir
@@ -96,9 +95,7 @@ end
 
 alias k=kubectl
 alias vim=nvim
-alias ccd="claude --dangerously-skip-permissions --permission-mode plan"
 alias ze="zellij -l welcome"
-alias cdx="codex"
 
 if test -d $HOME/.fonts
     for script in (command find $HOME/.fonts -maxdepth 1 -type f -name '*.sh' 2>/dev/null)
