@@ -43,8 +43,15 @@
 	provider = generic
 [credential "https://codeberg.org"]
 	provider = generic
+[lfs "customtransfer.xet"]
+	path = git-xet
+	args = transfer
+	concurrent = true
+# GCM-owned sections — git-credential-manager appends these at the end of the
+# file with a trailing space on the empty helper; keep this byte-identical to
+# GCM's output or the file shows as drifted after every GCM rewrite.
 [credential]
-	helper =
+	helper = 
 {{- if eq .chezmoi.os "darwin" }}
 	helper = /usr/local/share/gcm-core/git-credential-manager
 {{- else }}
@@ -52,7 +59,3 @@
 {{- end }}
 [credential "https://dev.azure.com"]
 	useHttpPath = true
-[lfs "customtransfer.xet"]
-	path = git-xet
-	args = transfer
-	concurrent = true
