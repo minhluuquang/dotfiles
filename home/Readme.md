@@ -1,6 +1,8 @@
 # Dotfiles (chezmoi)
 
-Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). This repo stores source templates under `dot_*/` that map to files in `$HOME`.
+Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/) in a dmmulroy-style layout.
+The source state lives in `~/.dotfiles/home/` (via `.chezmoiroot`) and files are **symlinked** into `$HOME`
+(`mode: symlink`) — edits in `$HOME` write back into the repo, like GNU stow.
 
 ## Quick start
 
@@ -11,13 +13,16 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/). This repo sto
 
 ## Contents
 
-- `dot_config/fish/config.fish` Fish shell environment setup, PATHs, aliases, and tool init (pyenv, rbenv, starship).
-- `dot_config/git/ignore` Global gitignore entries (Claude local settings).
-- `dot_config/mise/config.toml` Tool versions managed by mise (aws-cli, elixir, node, rust, usage, zig).
-- `dot_config/nvim/` LazyVim-based Neovim setup.
-- `dot_config/aerospace/` Placeholder for Aerospace config.
+- `~/.dotfiles/home/dot_config/fish/` Fish shell: config, aliases, functions, completions, themes.
+- `~/.dotfiles/home/dot_config/herdr/` Herdr terminal workspace manager.
+- `~/.dotfiles/home/dot_config/nvim/` LazyVim-based Neovim setup.
+- `~/.dotfiles/home/dot_config/mise/` Tool versions (aws-cli, elixir, node, rust, usage, zig).
+- `~/.dotfiles/home/dot_config/git/` Global gitignore.
+- `~/.dotfiles/home/dot_pi/` pi agent extensions.
+- `~/.dotfiles/home/dot_agents/` Agent skills (SKILL.md based).
 
 ## Notes
 
-- Paths assume macOS Homebrew locations (e.g. `/opt/homebrew`).
-- Some tools in Fish config (pyenv, rbenv, starship, devbox) must be installed separately.
+- Secrets are age-encrypted in the source (`encrypted_*.age`), never plaintext.
+- Runtime state (pi sessions, herdr logs, node_modules) is excluded via `.chezmoiignore`.
+- Per-directory conventions: see the `AGENTS.md` files in each config directory.
