@@ -25,7 +25,7 @@ pi (coding agent) configuration. Managed by chezmoi from `~/.dotfiles/home/dot_p
 
 ## MCP (pi-mcp-adapter)
 
-- **Dependency**: installed via `pi install npm:pi-mcp-adapter` (registered in `~/.pi/agent/settings.json`, which is untracked — re-run the install on a fresh machine).
+- **Dependency**: `npm:pi-mcp-adapter` + `git:github.com/minhluuquang/pi-vision-bridge` are tracked in `~/.pi/agent/settings.json` (managed, symlinked) — a fresh machine gets both via `chezmoi apply`. pi writes through the symlink (theme/model/package changes) — commit those changes.
 - **Servers**: `~/.pi/agent/mcp.json` (managed). Currently only `open-computer-use` (local stdio server, `open-computer-use mcp`, bun global).
 - **Runtime state**: `~/.pi/agent/mcp-cache.json` is adapter-generated — never add it.
 - macOS permissions: `open-computer-use doctor` to grant Accessibility permissions.

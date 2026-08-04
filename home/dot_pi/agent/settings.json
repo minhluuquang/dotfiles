@@ -1,0 +1,13 @@
+{
+  "lastChangelogVersion": "0.83.0",
+  "theme": "dark",
+  "defaultProvider": "deepseek",
+  "defaultModel": "deepseek-v4-flash",
+  "defaultThinkingLevel": "max",
+  "hideThinkingBlock": false,
+  "packages": [
+    "git:github.com/minhluuquang/pi-vision-bridge",
+    "npm:pi-mcp-adapter"
+  ],
+  "showCacheMissNotices": true
+}
