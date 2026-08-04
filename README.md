@@ -27,6 +27,14 @@ chezmoi update    # pull + apply
 chezmoi verify    # check everything matches
 ```
 
+## Fresh machine bootstrap
+
+The repo lives at `~/.dotfiles` (not chezmoi's default), so `init` needs `--source`:
+
+```bash
+chezmoi init --apply --source ~/.dotfiles https://github.com/minhluuquang/dotfiles.git
+```
+
 ## Testing
 
 Refactor validation lives in `~/projects/dotfiles-sandbox` (macOS sandbox + Debian container).

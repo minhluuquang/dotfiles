@@ -45,3 +45,11 @@ Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/), in a dmmulroy
 ## TESTING
 
 Structural refactors are validated in `~/projects/dotfiles-sandbox` (macOS sandbox via `--source`/`--destination` + Debian Docker container) before touching this repo. Run `scripts/test-macos-sandbox.sh` and `scripts/test-debian.sh` there.
+
+## FRESH MACHINE
+
+The repo lives at `~/.dotfiles` (not chezmoi's default `~/.local/share/chezmoi`), so the first `init` needs `--source`:
+
+```bash
+chezmoi init --apply --source ~/.dotfiles https://github.com/minhluuquang/dotfiles.git
+```
