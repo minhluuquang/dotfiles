@@ -7,7 +7,9 @@
   "hideThinkingBlock": false,
   "packages": [
     "git:github.com/minhluuquang/pi-vision-bridge",
-    "npm:pi-mcp-adapter"
+    "npm:pi-mcp-adapter",
+    "npm:@ogulcancelik/pi-minimal-footer",
+    "npm:@ogulcancelik/pi-session-recall"
   ],
   "showCacheMissNotices": true
 }
