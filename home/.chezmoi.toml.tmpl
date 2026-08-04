@@ -2,6 +2,8 @@
 {{- $email := promptStringOnce . "email" "Email address" -}}
 {{- $signingkey := promptStringOnce . "signingkey" "GPG signing key ID" -}}
 
+mode = "symlink"
+sourceDir = "~/.dotfiles"
 encryption = "age"
 
 [age]

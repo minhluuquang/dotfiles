@@ -1,0 +1,24 @@
+# pi runtime state — never manage
+.pi/agent/auth.json
+.pi/agent/models*.json
+.pi/agent/models.*.bak
+.pi/agent/npm/
+.pi/agent/sessions/
+.pi/agent/run-history.jsonl
+.pi/agent/git/
+.pi/skills-lock.json
+
+# agents skills runtime state
+.agents/.skill-lock.json
+
+# herdr runtime state
+.config/herdr/*.log
+.config/herdr/*.sock
+.config/herdr/session.json
+.config/herdr/session-history.json
+.config/herdr/release-notes.json
+.config/herdr/plugins.json
+.config/herdr/plugins/
+
+# never manage dependencies
+**/node_modules
