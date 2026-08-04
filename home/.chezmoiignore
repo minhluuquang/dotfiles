@@ -22,3 +22,6 @@
 
 # never manage dependencies
 **/node_modules
+
+# pi-mcp-adapter runtime cache
+.pi/agent/mcp-cache.json

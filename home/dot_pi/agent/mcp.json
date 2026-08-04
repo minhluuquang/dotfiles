@@ -1,0 +1,13 @@
+{
+  "mcp": {
+    "toolMode": "proxy",
+    "startup": "lazy",
+    "servers": {
+      "open-computer-use": {
+        "type": "local",
+        "command": ["open-computer-use", "mcp"],
+        "enabled": true
+      }
+    }
+  }
+}
