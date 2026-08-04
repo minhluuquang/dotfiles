@@ -25,3 +25,6 @@
 
 # pi-mcp-adapter runtime cache
 .pi/agent/mcp-cache.json
+
+# browser-tools skill runtime (headless chrome profile copy)
+.agents/skills/browser-tools/.headless-profile/
