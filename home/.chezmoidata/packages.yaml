@@ -33,7 +33,6 @@ packages:
     #   zellij:         curl -fsSL https://zellij.dev/install | sh
     #   claude:         npm install -g @anthropic-ai/claude-code
     #   codex:          npm install -g @openai/codex
-    #   omp:            bun install -g @oh-my-pi/pi-coding-agent
     # not in apt:
     #   kubectl:        snap install kubectl
     # mise manages: aws-cli, erlang, elixir, node, rust, zig, usage

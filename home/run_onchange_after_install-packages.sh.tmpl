@@ -62,8 +62,3 @@ if ! command -v zellij &>/dev/null; then
     cargo install zellij
 fi
 {{ end -}}
-
-# ── npm/bun global installs ──
-if command -v bun &>/dev/null; then
-    bun install -g @oh-my-pi/pi-coding-agent@latest
-fi
