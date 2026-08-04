@@ -1,6 +1,6 @@
 # dotfiles
 
-Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/) in a dmmulroy-style layout:
+Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/) :
 the source state lives in [`home/`](home/) and files are symlinked into `$HOME` (`mode: symlink`),
 so edits in `$HOME` write back into this repo.
 

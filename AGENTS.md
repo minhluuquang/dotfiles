@@ -1,6 +1,6 @@
 # DOTFILES
 
-Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/), in a dmmulroy-style layout (source state in `home/`, files symlinked into `$HOME`).
+Personal dotfiles managed with [chezmoi](https://www.chezmoi.io/),  (source state in `home/`, files symlinked into `$HOME`).
 
 ## STRUCTURE
 
