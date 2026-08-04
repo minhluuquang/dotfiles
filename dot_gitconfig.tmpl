@@ -32,9 +32,6 @@
 	helper = !/usr/bin/gh auth git-credential
 {{- end }}
 	username = {{ .name }}
-{{- else }}
-	helper = !/usr/bin/gh auth git-credential
-{{- end }}
 [credential "https://gist.github.com"]
 	helper =
 {{- if eq .chezmoi.os "darwin" }}
