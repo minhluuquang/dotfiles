@@ -26,6 +26,7 @@
 	gpgSign = true
 [credential "https://github.com"]
 	helper =
+	username = {{ .name }}
 {{- if eq .chezmoi.os "darwin" }}
 	helper = !/opt/homebrew/bin/gh auth git-credential
 {{- else }}
