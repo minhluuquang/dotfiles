@@ -6,7 +6,7 @@ Tool version manager ([mise](https://mise.jdx.dev/)). Managed by chezmoi from `~
 
 ```
 mise/
-└── config.toml            # [tools]: aws-cli, erlang, elixir, node, rust, usage, zig
+└── config.toml            # [tools]: aws-cli, erlang, elixir, node, rclone, rust, usage, zig
 ```
 
 ## NOTES
